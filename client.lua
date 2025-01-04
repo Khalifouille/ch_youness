@@ -82,7 +82,7 @@ Citizen.CreateThread(function()
                             ShowNotification('~r~MEC CHELOU : ~w~Je t\'ai deja donner une mission fils de cramptouille !')
                             -- TriggerServerEvent('ch_youness:sendGPS') (Déplacer dans items.lua au niveau de l'inv)
                         else
-                            ShowNotification('~r~MEC CHELOU : ~w~Va au points GPS sur le phone !')
+                            ShowNotification('~r~MEC CHELOU : ~w~Check ton phone pour la position !')
                             TriggerServerEvent('ch_youness:giveCryptedPhone')
                             -- TriggerServerEvent('ch_youness:sendGPS') (Déplacer dans items.lua au niveau de l'inv)
                         end
@@ -102,7 +102,9 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('ch_youness:setGPS')
-AddEventHandler('ch_youness:setGPS', function(x, y, z)
-    SetNewWaypoint(x, y)
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        DrawMarker(1, 56.057144, 165.824173, 104.783936 - 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 255, 0, 0, 100, false, true, 2, nil, nil, false)
+    end
 end)
