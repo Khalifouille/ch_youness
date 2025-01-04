@@ -80,9 +80,11 @@ Citizen.CreateThread(function()
                     ESX.TriggerServerCallback('ch_youness:checkCryptedPhone', function(hasPhone)
                         if hasPhone then
                             ShowNotification('~r~MEC CHELOU : ~w~Je t\'ai deja donner une mission fils de cramptouille !')
+                            TriggerServerEvent('ch_youness:sendGPS')
                         else
                             ShowNotification('~r~MEC CHELOU : ~w~Va au points GPS sur le phone !')
                             TriggerServerEvent('ch_youness:giveCryptedPhone')
+                            TriggerServerEvent('ch_youness:sendGPS')
                         end
                     end)
                 end
@@ -98,4 +100,9 @@ Citizen.CreateThread(function()
             end
         end
     end
+end)
+
+RegisterNetEvent('ch_youness:setGPS')
+AddEventHandler('ch_youness:setGPS', function(x, y, z)
+    SetNewWaypoint(x, y)
 end)
