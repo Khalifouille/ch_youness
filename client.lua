@@ -80,11 +80,11 @@ Citizen.CreateThread(function()
                     ESX.TriggerServerCallback('ch_youness:checkCryptedPhone', function(hasPhone)
                         if hasPhone then
                             ShowNotification('~r~MEC CHELOU : ~w~Je t\'ai deja donner une mission fils de cramptouille !')
-                            TriggerServerEvent('ch_youness:sendGPS')
+                            -- TriggerServerEvent('ch_youness:sendGPS') (Déplacer dans items.lua au niveau de l'inv)
                         else
                             ShowNotification('~r~MEC CHELOU : ~w~Va au points GPS sur le phone !')
                             TriggerServerEvent('ch_youness:giveCryptedPhone')
-                            TriggerServerEvent('ch_youness:sendGPS')
+                            -- TriggerServerEvent('ch_youness:sendGPS') (Déplacer dans items.lua au niveau de l'inv)
                         end
                     end)
                 end

@@ -9,7 +9,6 @@ RegisterNetEvent('ch_youness:giveCryptedPhone')
 AddEventHandler('ch_youness:giveCryptedPhone', function()
     local source = source
     exports.ox_inventory:AddItem(source, 'crypted_phone', 1)
-    print("Triggering sendGPS event for player: " .. source)
     TriggerClientEvent('ch_youness:sendGPS', source)
 end)
 
