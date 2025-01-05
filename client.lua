@@ -68,7 +68,7 @@ end
 RegisterNetEvent('ch_youness:setGPS')
 AddEventHandler('ch_youness:setGPS', function(x, y, z)
     SetNewWaypoint(x, y)
-    ShowNotification('~r~MEC CHELOU : ~w~Check ton phone pour la position !')
+    ShowNotification('~r~MEC CHELOU : ~w~Check ton GPS !')
 end)
 
 Citizen.CreateThread(function()
@@ -129,7 +129,7 @@ Citizen.CreateThread(function()
             ESX.ShowHelpNotification('Appuie sur  ~INPUT_CONTEXT~ pour vendre la frappe du rif !')
 
             if IsControlJustReleased(0, 38) then
-                TriggerServerEvent('ch_youness:checkMarijuana')
+                TriggerServerEvent('ch_youness:checkShit')
             end
         end
     end
