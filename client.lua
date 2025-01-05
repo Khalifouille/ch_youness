@@ -65,6 +65,12 @@ function ShowNotification(text)
     DrawNotification(false, true)
 end
 
+RegisterNetEvent('ch_youness:setGPS')
+AddEventHandler('ch_youness:setGPS', function(x, y, z)
+    SetNewWaypoint(x, y)
+    ShowNotification('~r~MEC CHELOU : ~w~Check ton phone pour la position !')
+end)
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -80,11 +86,8 @@ Citizen.CreateThread(function()
                     ESX.TriggerServerCallback('ch_youness:checkCryptedPhone', function(hasPhone)
                         if hasPhone then
                             ShowNotification('~r~MEC CHELOU : ~w~Je t\'ai deja donner une mission fils de cramptouille !')
-                            -- TriggerServerEvent('ch_youness:sendGPS') (Déplacer dans items.lua au niveau de l'inv)
                         else
-                            ShowNotification('~r~MEC CHELOU : ~w~Check ton phone pour la position !')
                             TriggerServerEvent('ch_youness:giveCryptedPhone')
-                            -- TriggerServerEvent('ch_youness:sendGPS') (Déplacer dans items.lua au niveau de l'inv)
                         end
                     end)
                 end
@@ -106,5 +109,28 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         DrawMarker(1, 56.057144, 165.824173, 104.783936 - 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 255, 0, 0, 100, false, true, 2, nil, nil, false)
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        local playerPed = PlayerPedId()
+        local coords = GetEntityCoords(playerPed)
+        local isInMarker = false
+        local markerCoords = vector3(56.057144, 165.824173, 104.783936)
+        local markerRadius = 1.0
+
+        if #(coords - markerCoords) < markerRadius then
+            isInMarker = true
+        end
+
+        if isInMarker then
+            ESX.ShowHelpNotification('Appuie sur  ~INPUT_CONTEXT~ pour vendre la frappe du rif !')
+
+            if IsControlJustReleased(0, 38) then
+                TriggerServerEvent('ch_youness:checkMarijuana')
+            end
+        end
     end
 end)
