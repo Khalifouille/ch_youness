@@ -15,7 +15,7 @@ AddEventHandler('ch_youness:giveCryptedPhone', function()
     TriggerClientEvent('ch_youness:sendGPS', source)
 end)
 
-ESX.RegisterServerCallback('ch_youness:checkCryptedPhone', function(source, cb)
+ESX.RegisterServerCallback('ch_youness:checkshitphone', function(source, cb)
     local xPlayer = ESX.GetPlayerFromId(source)
     local item = xPlayer.getInventoryItem('crypted_phone')
     local item2 = xPlayer.getInventoryItem('packet_de_shit')

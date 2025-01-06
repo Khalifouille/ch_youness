@@ -83,7 +83,7 @@ Citizen.CreateThread(function()
                 DrawText3D(pedCoords.x, pedCoords.y, pedCoords.z + 0.9, "MECHOUI")
 
                 if IsControlJustPressed(1, 51) then
-                    ESX.TriggerServerCallback('ch_youness:checkCryptedPhone', function(hasPhone)
+                    ESX.TriggerServerCallback('ch_youness:checkshitphone', function(hasPhone)
                         if hasPhone then
                             ShowNotification('~r~MEC CHELOU : ~w~Je t\'ai deja donner une mission fils de cramptouille !')
                         else
