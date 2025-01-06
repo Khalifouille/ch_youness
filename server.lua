@@ -1,3 +1,10 @@
+-- Objet "Packet de shit n'est plus dropable aprés modification de ox_inventory" modifier dans resources/[esx]/ox_inventory/modules/inventory/server.lua
+--local function dropItem(source, playerInventory, fromData, data)
+--    if fromData.name == 'packet_de_shit' then
+--        return false, { error = 'Vous ne pouvez pas jeter cet item' }
+--    end
+
+
 ESX = exports['es_extended']:getSharedObject()
 
 RegisterNetEvent('ch_youness:giveCryptedPhone')
